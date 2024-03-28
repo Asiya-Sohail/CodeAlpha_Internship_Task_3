@@ -3,9 +3,6 @@ from django.http import JsonResponse
 
 from django.contrib import auth
 from django.contrib.auth.models import User
-from .models import Chat
-
-from django.utils import timezone
 
 import nltk
 from nltk.chat.util import Chat, reflections
@@ -199,9 +196,6 @@ def chatbot(request):
         response = ask_chatbot(message)
         if response == None:
             response("Sorry this is beyond my knowledge! Try something else")
-
-        #chat = Chat(user=request.user, message=message, response=response, created_at=timezone.now())
-        #chat.save()
         return JsonResponse({'message' : message, 'response' : response})
     return render(request, 'chatbot.html')
 
