@@ -10,6 +10,22 @@ from nltk.chat.util import Chat, reflections
 # Define pairs of patterns and responses
 pairs = [
     [
+        r"(.*) (joke|funny)",
+        ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!",]
+    ],
+    [
+        r"do you have trust issues?",
+        ["Hehe, I only response to my favourite ones",]
+    ],
+    [
+        r"(.*) do you like me? ",
+        ["As long as you are not going to another chatbot, I like you!",]
+    ],
+    [
+        r"(.*) (birthday|special occasion) (.*)",
+        ["Happy birthday! Wishing you a fantastic day filled with joy and happiness.",]
+    ],
+    [
         r"(hi|hello|bro|dude)",
         ["Hey, how can I assist you? ",]
     ],
@@ -44,14 +60,6 @@ pairs = [
     [
         r"where are you located ?",
         ["I exist in the digital realm, always ready to assist you wherever you are!",]
-    ],
-    [
-        r"do you have trust issues ?",
-        ["Hehe, I only response to my favourite ones",]
-    ],
-    [
-        r"(.*) do you like me? ",
-        ["As long as you are not going to another chatbot, I like you!",]
     ],
     [
         r"(.*) (weather|temperature) in (.*)",
@@ -106,16 +114,8 @@ pairs = [
         ["I can provide updates on current events and news topics. What specific news are you interested in?",]
     ],
     [
-        r"(.*) (joke|funny) (.*)",
-        ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!",]
-    ],
-    [
         r"(.*) (fact|interesting) (.*)",
         ["Did you know? The shortest war in history was between Britain and Zanzibar on August 27, 1896. Zanzibar surrendered after just 38 minutes!",]
-    ],
-    [
-        r"(.*) (birthdays|special occasion) (.*)",
-        ["Happy birthday/special occasion! Wishing you a fantastic day filled with joy and happiness.",]
     ],
     [
         r"(.*) (hobby|interest) (.*)",
