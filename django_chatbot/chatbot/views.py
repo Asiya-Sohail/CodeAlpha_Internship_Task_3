@@ -10,174 +10,126 @@ from nltk.chat.util import Chat, reflections
 # Define pairs of patterns and responses
 pairs = [
     [
-        r"(.*) (joke|funny)",
-        ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!",]
-    ],
-    [
-        r"do you have trust issues?",
-        ["Hehe, I only response to my favourite ones",]
-    ],
-    [
-        r"(.*) do you like me? ",
-        ["As long as you are not going to another chatbot, I like you!",]
-    ],
-    [
-        r"(.*) (birthday|special occasion) (.*)",
-        ["Happy birthday! Wishing you a fantastic day filled with joy and happiness.",]
-    ],
-    [
         r"(hi|hello|bro|dude)",
         ["Hey, how can I assist you? ",]
-    ],
-    [
-        r"can you teach me (.*)",
-        ["Sorry I have limited knowledge, Try something else.",]
-    ],
-    [
-        r"my name is (.*)",
-        ["Hello %1, how can I assist you today?", "Hi %1, what can I do for you?",]
-    ],
-    [
-        r"what is your name?",
-        ["My name is ChatBot and I'm here to help.", "You can call me ChatBot.",]
-    ],
-    [
-        r"how are you ?",
-        ["I'm doing well, thank you!", "I'm fine, thank you for asking.",]
     ],
     [
         r"(.*) your name ?",
         ["My name is ChatBot. How can I assist you?",]
     ],
     [
-        r"what can you do ?",
-        ["I can help you with various tasks like providing information, answering questions, or just having a conversation.",]
-    ],
-    [
-        r"how can I contact you ?",
+        r"how can I contact you (.*)",
         ["You can contact me via email at chatbot@example.com.",]
     ],
     [
-        r"where are you located ?",
+        r"where are you located (.*)",
         ["I exist in the digital realm, always ready to assist you wherever you are!",]
     ],
     [
-        r"(.*) (weather|temperature) in (.*)",
-        ["The weather in %3 is currently unavailable.", "Sorry, I don't have access to real-time weather information.",]
-    ],
-    [
-        r"(.*) (movie|film)",
-        ["I can't play movies, but I can suggest some popular movies for you to watch.",]
-    ],
-    [
-        r"(.*) (play|song|music) ",
-        ["I'm not capable of playing music, but I can recommend some great songs if you'd like!",]
-    ],
-    [
-        r"(.*) (good morning|good afternoon|good evening)",
-        ["Good %1! How can I assist you today?", "Hello! What can I do for you %1?",]
+        r"(.*) (joke|funny)",
+        ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!",]
     ],
     [
         r"(.*) (thank you|thanks) (.*)",
         ["You're welcome!", "No problem! If you need further assistance, feel free to ask.",]
     ],
     [
-        r"(.*)(how|what) (.*)",
-        ["I'm here to provide assistance. Please specify your question or request.",]
-    ],
-    [
-        r"(.*)(can|could) you (.*)",
-        ["I can certainly try. Please specify what you need assistance with.",]
-    ],
-    [
-        r"(.*) (recommend|suggest) (.*)",
-        ["Sure! I can recommend books, movies, music, and more. Just let me know what you're interested in.",]
-    ],
-    [
-        r"(.*)(favorite|favourite) (.*)",
-        ["I don't have personal preferences, but I can recommend popular choices based on your interests.",]
-    ],
-    [
         r"(.*) (help|assistance) (.*)",
         ["Of course! I'm here to help. Just let me know what you need assistance with.",]
     ],
-    [
-        r"(.*) (learn|study|education) (.*)",
-        ["I can provide information on various topics. What would you like to learn about?",]
-    ],
-    [
-        r"(.*) (sports|team|athlete) (.*)",
-        ["I can provide information about sports, teams, and athletes. What are you interested in?",]
-    ],
-    [
-        r"(.*) (news|current events) (.*)",
-        ["I can provide updates on current events and news topics. What specific news are you interested in?",]
-    ],
-    [
-        r"(.*) (fact|interesting) (.*)",
-        ["Did you know? The shortest war in history was between Britain and Zanzibar on August 27, 1896. Zanzibar surrendered after just 38 minutes!",]
-    ],
-    [
-        r"(.*) (hobby|interest) (.*)",
-        ["I'm interested in helping you discover new hobbies or learning more about your current interests. What are you passionate about?",]
-    ],
-    [
-        r"(.*) (food|recipe) (.*)",
-        ["I can suggest recipes or provide information about different cuisines. What type of food are you interested in?",]
-    ],
-    [
-        r"(.*) (health|wellness) (.*)",
-        ["I can provide general health tips and information about maintaining wellness. What health-related topics are you curious about?",]
-    ],
-    [
-        r"(.*) (technology|innovation) (.*)",
-        ["I'm interested in technology and innovation too! What specific tech topics would you like to discuss?",]
-    ],
-    [
-        r"(.*) (travel|destination) (.*)",
-        ["I can recommend travel destinations and provide information about popular tourist spots. Where would you like to go?",]
-    ],
-    [
-        r"(.*) (pet|animal) (.*)",
-        ["I love animals too! What kind of pets do you have or are interested in?",]
-    ],
-    [
-        r"(.*) (language|linguistics) (.*)",
-        ["Languages are fascinating! What aspects of language or linguistics are you interested in?",]
-    ],
-    [
-        r"(.*) (relationship|love) (.*)",
-        ["Relationships can be complex. How can I assist you with relationship advice or information?",]
-    ],
-    [
-        r"(.*) (philosophy|ethics) (.*)",
-        ["Philosophy and ethics are profound subjects. What specific questions or topics would you like to explore?",]
-    ],
-    [
-        r"(.*) (politics|government) (.*)",
-        ["Politics can be a contentious topic. What political issues or government systems are you interested in discussing?",]
-    ],
-    [
-        r"(.*) (environment|sustainability) (.*)",
-        ["Protecting the environment is crucial. How can I assist you with information or tips on sustainability?",]
-    ],
-    [
-        r"(.*) (history|historical event) (.*)",
-        ["History is full of fascinating events. What historical period or event are you interested in learning more about?",]
-    ],
-    [
-        r"(.*) (work|job|career) (.*)",
-        ["I can provide career advice or information about different professions. What specific career-related questions do you have?",]
-    ],
-    [
-        r"(.*) (art|creative) (.*)",
-        ["Artistic expression is wonderful. What forms of art or creative endeavors are you passionate about?",]
-    ],
-    [
-        r"(.*) (finance|money) (.*)",
-        ["Financial literacy is important. How can I assist you with financial advice or information?",]
-    ]
 ]
+
+pairs.extend([
+    [
+        r"(.*) bye",
+        ["Have a great day, keep shining, bye",]
+    ],
+    [
+        r"what is happiness",
+        ["Happiness is finding joy in the simplest of things and contentment in every moment.",]
+    ],
+    [
+        r"(.*) I need motivation",
+        ["Remember, every accomplishment starts with the decision to try. You've got this!",]
+    ],
+    [
+        r"Can you give me advice on love",
+        ["Love is about accepting each other's flaws and building each other up. Communication and understanding are key.",]
+    ],
+    [
+        r"Tell me something inspiring",
+        ["The only way to do great work is to love what you do. If you haven't found it yet, keep searching.",]
+    ],
+    [
+        r"Are you wise",
+        ["Wisdom is a journey, not a destination. I'm here to learn and grow with you.",]
+    ],
+    [
+        r"Life is challenging",
+        ["Indeed, challenges are what make life interesting. Overcoming them is what makes life meaningful.",]
+    ],
+    [
+        r"I'm feeling lost",
+        ["Sometimes the journey of self-discovery is the most rewarding adventure of all. Embrace the unknown and trust in your own path.",]
+    ],
+    [
+        r"Can you share a life lesson",
+        ["Life is like a camera. Focus on what's important, capture the good times, develop from the negatives, and if things don't work out, take another shot.",]
+    ],
+    [
+        r"I'm feeling down",
+        ["It's okay not to be okay. Remember, storms don't last forever. You're stronger than you think.",]
+    ],
+    [
+        r"Tell me about perseverance",
+        ["Perseverance is the hard work you do after you get tired of doing the hard work you already did.",]
+    ]
+])
+
+pairs.extend([
+    [
+        r"What is success",
+        ["Success is not just about achieving goals, but also about finding fulfillment in the journey towards them.",]
+    ],
+    [
+        r"Tell me about ambition",
+        ["Ambition is the fuel that drives us to pursue our dreams relentlessly, even in the face of obstacles.",]
+    ],
+    [
+        r"(.*) creativity",
+        ["Creativity knows no bounds. Embrace your unique perspective and let your imagination soar.",]
+    ],
+    [
+        r"I'm facing adversity",
+        ["Adversity is the stepping stone to greatness. It's during our toughest times that we discover our true strength.",]
+    ],
+    [
+        r"(.*) courage",
+        ["Courage is not the absence of fear, but the willingness to face it head-on, despite the odds.",]
+    ],
+    [
+        r"Share a quote about resilience",
+        ["Resilience is not about never falling down, but about rising every time we fall. 'Fall seven times, stand up eight.'",]
+    ],
+    [
+        r"Life feels overwhelming",
+        ["When life gets overwhelming, take a step back, breathe, and focus on taking one small, positive step forward at a time.",]
+    ],
+    [
+        r"Tell me about self-discovery",
+        ["Self-discovery is a journey of uncovering layers of your true self, embracing both the light and the shadow.",]
+    ],
+    [
+        r"I need motivation to pursue my dreams",
+        ["Your dreams are your compass, guiding you towards your true purpose. Believe in yourself and take that first step.",]
+    ],
+    [
+        r"Can you share a perspective on change",
+        ["Change is the only constant in life. Embrace it as an opportunity for growth and transformation.",]
+    ]
+])
+
+
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -195,7 +147,7 @@ def chatbot(request):
         print(ask_chatbot(message))
         response = ask_chatbot(message)
         if response == None:
-            response("Sorry this is beyond my knowledge! Try something else")
+            response = "Sorry this is beyond my knowledge! Try something else"
         return JsonResponse({'message' : message, 'response' : response})
     return render(request, 'chatbot.html')
 
